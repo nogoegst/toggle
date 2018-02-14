@@ -18,6 +18,11 @@ type Toggle = uint32
 var StatusReady = uint32(1<<32 - 1)
 var StatusNotReady = uint32(0)
 
+// New creates new toggle
+func New() *Toggle {
+	return new(Toggle)
+}
+
 // Ready sets status of toggle t to StatusReady.
 func Ready(t *Toggle) {
 	atomic.StoreUint32(t, StatusReady)
